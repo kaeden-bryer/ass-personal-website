@@ -1,0 +1,56 @@
+#testdiv {
+    display: flex;
+    justify-self: center;
+    padding: 10px;
+    background-color: rgb(35, 0, 52);
+    color: white;
+    width: 200px;
+    height: 200px;
+    border-image: conic-gradient(from var(--angle), blue, red, blue) 30;
+    border-style: solid;
+    border-width: 10px;
+}
+
+#testdiv:hover {
+    animation: border-spin 1s linear infinite;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes border-spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.container {
+    margin-top: 2em;
+    padding: 20px;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	transition: 150ms ease;
+    width: 60%;
+
+	display: grid;
+	grid-template-rows: 1.5em 0fr; /* this keeps it closed initially */
+	&.open {
+        grid-template-rows: 1.5em 1fr; /* 1fr opens everything */
+    }
+}
+.open {
+	grid-template-rows: 1.5em 1fr; /* 1fr opens everything */
+}
+p {
+	margin-top: 2.5em;
+}
+.hidden {
+	overflow: hidden;
+}
